@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Suite" parallel="tests" >
+    <listeners>
+        <listener class-name="testngsfdcpackage.InvokedMethodListener"></listener>
+    </listeners>
+    <test name="testngsfdcpackage.LoginTest1" parallel="methods" thread-count="4">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="testngsfdcpackage.LoginTest1">
+                <methods>
+                    <include name="GOOGLE0" />
+                    <include name="GOOGLE2" />
+                    <include name="GOOGLE3" />
+                    <include name="GOOGLE4" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="testngsfdcpackage.LoginTest2"  parallel="methods" thread-count="2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="testngsfdcpackage.LoginTest2">
+                <methods>
+                    <include name="GOOGLE1" />
+                    <include name="SFDC" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
